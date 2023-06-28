@@ -1,0 +1,26 @@
+package com.bean;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String [] args) {
+		
+		List<Object> objectList = new ArrayList<>();
+        objectList.add("Hello");
+        objectList.add(123);
+        
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(4);
+
+        try {
+            boolean containsAll = integerList.containsAll((Collection<?>) objectList.get(1));
+            System.out.println("Contains all elements: " + containsAll);
+        } catch (ClassCastException e) {
+            System.out.println("ClassCastException occurred: " + e.getMessage());
+        }
+    }
+	
+}
